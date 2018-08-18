@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单文件上传</title>
+    <link rel="stylesheet" href="http://localhost:8080/solr/static/css/layui.css" media="all">
+</head>
+<body>
+
+<button type="button" class="layui-btn" id="test3"><i class="layui-icon"></i>上传文件</button>
+
+</body>
+
+<script src="http://localhost:8080/solr/static/layui.js" charset="utf-8"></script>
+<script>
+
+    layui.use( 'upload', function () {
+        var $ = layui.jquery,
+            upload = layui.upload;
+
+        //指定允许上传的文件类型
+        upload.render({
+            elem: '#test3'
+            ,url: "http://localhost:8080/solr/upload/one.do"
+            ,accept: 'file' //普通文件
+            ,done: function(res){
+                //console.log(res)
+                //layer.msg(res);
+                alert(res.msg);
+            },error: function(){
+               alert('sss');
+            }
+        });
+
+    } );
+
+</script>
+
+</html>
